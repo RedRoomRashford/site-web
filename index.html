@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedRoom - Boîte de Nuit</title>
+    <style>
+
+body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)), url("images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80');
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80');
+        }
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: #ff0000;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-left: 10px;
+            text-shadow: 
+                1px 1px 1px #d10000,
+                2px 2px 1px #b00000,
+                3px 3px 1px #900000,
+                4px 4px 1px #700000,
+                5px 5px 8px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .logo-text:hover {
+            transform: translateY(-2px);
+            text-shadow: 
+                1px 1px 1px #d10000,
+                2px 2px 1px #b00000,
+                3px 3px 1px #900000,
+                4px 4px 1px #700000,
+                5px 5px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ff0000;
+        }
+        
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff0000;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            background-color: #cc0000;
+        }
+        
+        .events {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .event-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .event-card {
+            flex: 0 0 calc(33.333% - 20px);
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .event-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .event-details {
+            padding: 20px;
+        }
+        
+        .event-date {
+            font-size: 1rem;
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+        
+        .event-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .info-section {
+            background-color: #0c0c0c;
+            padding: 80px 0;
+        }
+        
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .info-box {
+            flex: 0 0 calc(33.333% - 30px);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .info-icon {
+            font-size: 3rem;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+        
+        .info-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .info-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        .table-reservation {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .reservation-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(30, 30, 30, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .reservation-form form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .reservation-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .reservation-form input,
+        .reservation-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .reservation-form input:focus,
+        .reservation-form textarea:focus {
+            border-color: #ff0000;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .reservation-form input[type="file"] {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+        }
+
+        .reservation-form button {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .reservation-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+            background: linear-gradient(45deg, #cc0000, #ff0000);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff0000;
+            pointer-events: none;
+        }
+        
+        footer {
+            background-color: #000;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 0 0 calc(25% - 30px);
+            margin-bottom: 30px;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            color: #ff0000;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ff0000;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #ff0000;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 992px) {
+            .event-card {
+                flex: 0 0 calc(50% - 15px);
+            }
+            
+            .info-box {
+                flex: 0 0 calc(50% - 20px);
+            }
+            
+            .footer-section {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .event-card {
+                flex: 0 0 100%;
+            }
+            
+            .info-box {
+                flex: 0 0 100%;
+            }
+            
+            .footer-section {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://redroom-nightclub.com" style="position: absolute; top: 10px; right: 10px; color: #ff0000; text-decoration: none; font-weight: bold;"></a>
+    <!-- En-tête avec navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://i.postimg.cc/Vv3QHSBp/file-U9-G6s-Dg-BWTis-Kid-Np-SFzcy.png" alt="RedRoom Logo">
+                <span class="logo-text">RedRoom</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#evenements">Événements</a></li>
+                    <li><a href="#infos">Infos Pratiques</a></li>
+                    <li><a href="#reservation">Réservation</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Section héro / Accueil -->
+    <section id="accueil" class="hero">
+        <h1>RedRoom</h1>
+        <p>L'expérience nocturne la plus intense de la ville</p>
+        <div>
+            <a href="#evenements" class="btn">Événements</a>
+            <a href="#reservation" class="btn">Réserver une table</a>
+        </div>
+    </section>
+    
+    <!-- Section événements -->
+    <section id="evenements" class="events">
+        <h2 class="section-title">Événements à venir</h2>
+        <div class="event-cards">
+            <div class="event-card">
+                <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80');"></div>
+                <div class="event-details">
+                    <div class="event-date">Vendredi, 14 Mars</div>
+                    <h3 class="event-title">en cours...</h3>
+                    <p>en cours....</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80');"></div>
+                <div class="event-details">
+                    <div class="event-date">Samedi, 15 Mars</div>
+                    <h3 class="event-title">en cours...</h3>
+                    <p>en cours...</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80');"></div>
+                <div class="event-details">
+                    <div class="event-date">Vendredi, 21 Mars</div>
+                    <h3 class="event-title">en cours...</h3>
+                    <p>en cours...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Infos Pratiques -->
+    <section id="infos" class="info-section">
+        <h2 class="section-title">Infos Pratiques</h2>
+        <div class="info-container">
+            <div class="info-box">
+                <div class="info-icon">🕒</div>
+                <h3 class="info-title">Horaires</h3>
+                <p class="info-text">
+                    Les jours varie mais les horraire son 
+                    de 1h a 3h du matin 
+                </p>
+            </div>
+            <div class="info-box">
+                <div class="info-icon">📍</div>
+                <h3 class="info-title">Adresse</h3>
+                <p class="info-text">
+                    Bronks<br>
+                </p>
+            </div>
+            <div class="info-box">
+                <div class="info-icon">💰</div>
+                <h3 class="info-title">Tarifs</h3>
+                <p class="info-text">
+                    Entrée standard: 150€<br>
+                    VIP (avec table): 2500€<br>
+                    Événements spéciaux: tarifs variables
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Réservation de table -->
+    <section id="reservation" class="table-reservation">
+        <h2 class="section-title">Réserver une table</h2>
+        <p>Assurez-vous d'avoir la meilleure expérience en réservant votre table à l'avance</p>
+    <script>
+        async function sendToDiscord(event) {
+            event.preventDefault();
+            
+            const webhookURL = "https://discord.com/api/webhooks/1348691219978649600/y197FatXGQSKcu0Jm1jZuahmPj9UH7nyKdoz4MYC-bVef4ZiUJWc3Jwd00Lu5BB3CHJO";
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const guests = document.getElementById('guests').value;
+            const message = document.getElementById('message').value;
+            const imageFile = document.getElementById('identity').files[0];
+
+            try {
+                const formData = new FormData();
+                formData.append('file', imageFile);
+                formData.append('payload_json', JSON.stringify({
+                    embeds: [{
+                        title: "🎉 Nouvelle Réservation RedRoom",
+                        color: 0xff0000,
+                        fields: [
+                            { name: "👤 Nom", value: name, inline: true },
+                            { name: "📞 Téléphone", value: phone, inline: true },
+                            { name: "📅 Date", value: date, inline: true },
+                            { name: "🕒 Heure", value: time, inline: true },
+                            { name: "👥 Nombre de personnes", value: guests, inline: true },
+                            { name: "💬 Message", value: message || "Aucun message", inline: false }
+                        ],
+                        timestamp: new Date()
+                    }]
+                }));
+
+                if (imageFile && imageFile.size > 8 * 1024 * 1024) {
+                alert('L\'image ne doit pas dépasser 8MB');
+                return;
+            }
+
+
+                const response = await fetch(webhookURL, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    alert('Réservation envoyée avec succès !');
+                    document.getElementById('reservationForm').reset();
+                } else {
+                    throw new Error('Erreur lors de l\'envoi');
+                }
+            } catch (error) {
+                alert('Erreur lors de l\'envoi de la réservation. Veuillez réessayer.');
+                console.error('Erreur:', error);
+            }
+        }
+    </script>
+</section>
+    </head>
+    <body>
+        <main>
+            <div class="reservation-form">
+                <form id="reservationForm" onsubmit="sendToDiscord(event)">
+                    <div class="input-group">
+                        <label for="name">👤 Nom Prenom</label>
+                        <input type="text" id="name" name="name" required 
+                               placeholder="Entrez votre nom complet">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="phone">📱 Numero Téléphone</label>
+                        <input type="tel" id="phone" name="phone" required 
+                               placeholder="Votre numéro de téléphone">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="date">📅 Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="time">⏰ Heure</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="guests">👥 Nombre de personnes</label>
+                        <input type="number" id="guests" name="guests" required 
+                               min="1" placeholder="Nombre de personnes">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="identity">🪪 Carte d'identité</label>
+                        <input type="file" id="identity" name="identity" 
+                               accept="image/jpeg,image/png" required>
+                        <small style="color: #666; display: block; margin-top: 5px;">
+                            Format accepté : JPG, PNG (max 8MB)
+                        </small>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="message">💬 Message (optionnel)</label>
+                        <textarea id="message" name="message" 
+                                  placeholder="Votre message ou demandes spéciales"
+                                  rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit">
+                        <span>Envoyer la réservation</span>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </section>
+    
+    <!-- Pied de page -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-title">RedRoom</h3>
+                <p>La boîte de nuit incontournable pour vivre des nuits mémorables dans une ambiance électrisante.</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Contact</h3>
+                <ul class="footer-links">
+                    <li>Téléphone: patronne: ... co patron:(520) 649-8845</li>
+                    <li>Adresse: Bronks</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#evenements">Événements</a></li>
+                    <li><a href="#infos">Infos Pratiques</a></li>
+                    <li><a href="#reservation">Réservation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 RedRoom Club. Tous droits réservés. 
+        </div>
+    </div>
+        &copy; developed by JDNathan
+    </div>
+    </footer>
+</body>
+</html>
